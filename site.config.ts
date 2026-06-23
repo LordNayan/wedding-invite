@@ -26,7 +26,7 @@ export const siteConfig = {
   /* ---------- Global identity ---------- */
   couple: {
     // Used in the big script heading on the hero (rendered as one word).
-    scriptName: "NayanWedsNatasha",
+    scriptName: "Nayan Weds Natasha",
     monogramText: "N & N",
     monogramImage: "/assets/monogram.png",
     initials: "N | N",
@@ -45,14 +45,14 @@ export const siteConfig = {
     backgroundImage: "/assets/hero-bg.webp",
     kicker: "WE ARE GETTING MARRIED",
     saveTheDate: "SAVE THE DATE",
-    dateLine: "9th January 2027",
-    location: "KOTTAYAM, KERALA",
+    dateLine: "24th-25th October, 2026",
+    location: "JMD Resort, Mandav",
   },
 
   /* ---------- Countdown ---------- */
   countdown: {
     // ISO date/time of the wedding (local). Drives the live countdown.
-    targetDate: "2027-01-09T15:00:00+05:30",
+    targetDate: "2026-10-24T15:00:00+05:30",
     heading: "THE COUNTDOWN BEGINS",
     footnote: "Until our forever begins",
     thankYou: "Thank you for being a part of our special day.",
@@ -67,16 +67,16 @@ export const siteConfig = {
     groom: {
       name: "Nayan",
       relationLabel: "S/o",
-      parents: "Cyril Philip & Soly Joseph",
-      siblingLabel: "Brother of",
-      siblings: ["Dr. Sruthi Cyril", "Sreya Cyril"],
+      parents: "Bhajan & Sapna Lakhwani",
+      siblingLabel: "Grandson of",
+      siblings: ["Lt. Shri Tikamdas", "Lt. Shrimati Rajkumari Lakhwani"],
     },
     bride: {
       name: "Natasha",
       relationLabel: "D/o",
-      parents: "Scaria Joseph & Bindu Scaria",
-      siblingLabel: "Sister of",
-      siblings: ["Leona Mary Scaria", "Linett Mary Scaria"],
+      parents: "Bhushan & Payal Pradhan",
+      siblingLabel: "Granddaughter of",
+      siblings: ["Lt. Shri Rajendra", "Lt. Shrimati Rajeshree Pradhan"],
     },
   },
 
@@ -104,7 +104,7 @@ export const siteConfig = {
     heading: "SCHEDULE OF EVENTS",
     subheading: "A CELEBRATION OF TRADITION, LOVE & FAMILY",
     // Each card is a pre-designed image from the original deck.
-    cards: [{ image: "/assets/schedule-card-1.webp", title: "Chanthamcharth" }],
+    cards: [{ image: "/assets/mehendi.webp", title: "Mehendi" },{ image: "/assets/haldi.webp", title: "Haldi" },{ image: "/assets/cocktail.webp", title: "Cocktail" },{ image: "/assets/schedule-card-1.webp", title: "Sufi Night" },{ image: "/assets/schedule-card-1.webp", title: "After Party" }],
   },
 
   /* ---------- Wedding ceremony ---------- */
@@ -113,7 +113,7 @@ export const siteConfig = {
     contentImage: "/assets/wedding-content.webp",
     eyebrow: "SCHEDULE OF EVENTS",
     subheading: "A CELEBRATION OF LOVE, FAITH & FOREVER",
-    dateLabel: "9TH JANUARY, 2027",
+    dateLabel: "24th-25th October, 2026",
     title: "Wedding",
     time: "3:00 PM",
     venueLabel: "Venue:",

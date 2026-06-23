@@ -31,6 +31,9 @@ export default function Home() {
             <div className="divider">{c.hero.saveTheDate}</div>
             <p className="hero__date script">{c.hero.dateLine}</p>
             <p className="eyebrow hero__loc">{c.hero.location}</p>
+            <a className="rsvp__directions" href={c.rsvp.directionsUrl} target="_blank" rel="noopener noreferrer">
+              📍 {c.rsvp.directionsLabel}
+            </a>
           </Reveal>
         </div>
       </section>
@@ -143,68 +146,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------------- WEDDING ---------------- */}
-      <section className="section">
-        <div className="section-bg" style={bg(c.wedding.backgroundImage)} />
-        <div className="section-inner">
-          <Reveal>
-            <h2 className="section-title">{c.wedding.eyebrow}</h2>
-            <div className="heart">♥</div>
-            <p className="eyebrow">{c.wedding.subheading}</p>
-            <p className="ornament">❦</p>
-            <h3 className="wedding__date script">{c.wedding.dateLabel}</h3>
-            <p className="ornament">♦</p>
-          </Reveal>
-          <Reveal delay={120}>
-            <img className="wedding__content" src={c.wedding.contentImage} alt={c.wedding.title} loading="lazy" />
-          </Reveal>
-          <Reveal delay={180}>
-            <h2 className="wedding__title script">{c.wedding.title}</h2>
-            <p className="wedding__time">{c.wedding.time}</p>
-            <p className="wedding__venue-label">{c.wedding.venueLabel}</p>
-            <a className="wedding__venue" href={c.wedding.venueMapUrl} target="_blank" rel="noopener noreferrer">
-              {c.wedding.venueName}
-            </a>
-          </Reveal>
-          <Reveal delay={240}>
-            <p className="wedding__verse">
-              &ldquo;
-              {c.wedding.verse.map((l, i) => (
-                <span key={i}>
-                  {l}
-                  <br />
-                </span>
-              ))}
-              &rdquo;
-            </p>
-            <p className="wedding__verse-ref eyebrow">{c.wedding.verseRef}</p>
-            <div className="heart">♥</div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ---------------- RECEPTION ---------------- */}
-      <section className="section">
-        <div className="section-bg" style={bg(c.reception.backgroundImage)} />
-        <div className="section-inner">
-          <Reveal>
-            <h2 className="section-title">{c.reception.eyebrow}</h2>
-            <div className="heart">♥</div>
-            <p className="eyebrow">{c.reception.subheading}</p>
-          </Reveal>
-          <Reveal delay={120}>
-            <img className="reception__content" src={c.reception.contentImage} alt="Reception" loading="lazy" />
-          </Reveal>
-        </div>
-      </section>
-
       {/* ---------------- RSVP ---------------- */}
       <section className="section rsvp">
         <div className="section-bg" style={bg(c.rsvp.backgroundImage)} />
         <div className="section-inner">
-          <Reveal>
-            <Rsvp />
-          </Reveal>
           <Reveal delay={120}>
             <p className="rsvp__footer script">{c.rsvp.footer}</p>
             <div className="heart">♥</div>

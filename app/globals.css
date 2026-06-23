@@ -182,6 +182,7 @@ a {
 }
 .hero__loc {
   margin-top: 1rem;
+  font-size: clamp(1rem, 2.8vw, 1.4rem);
 }
 
 /* ================= COUNTDOWN ================= */
@@ -260,6 +261,13 @@ a {
   }
   .families__sep {
     order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .ornament {
+    letter-spacing: 0.18em;
+    font-size: 0.95rem;
   }
 }
 
