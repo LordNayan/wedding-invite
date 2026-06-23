@@ -28,7 +28,7 @@ export const siteConfig = {
     // Used in the big script heading on the hero (rendered as one word).
     scriptName: "NayanWedsNatasha",
     monogramText: "N & N",
-    monogramImage: "/assets/monogram.webp",
+    monogramImage: "/assets/monogram.png",
     initials: "N | N",
   },
 

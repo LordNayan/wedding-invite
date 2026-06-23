@@ -31,14 +31,14 @@ export default function Envelope() {
     >
       <video
         ref={videoRef}
-        className="envelope__video"
+        className={`envelope__video ${playing ? "envelope__video--visible" : ""}`}
         src={intro.video}
         poster={intro.poster}
         muted
         playsInline
         onEnded={() => setOpen(true)}
       />
-      <div className={`envelope__veil ${playing ? "envelope__veil--hide" : ""}`} />
+
       <div className={`envelope__content ${playing ? "envelope__content--hide" : ""}`}>
         <div className="envelope__monogram script">{couple.monogramText}</div>
         <span className="envelope__tap">{intro.tapLabel}</span>
@@ -67,20 +67,14 @@ export default function Envelope() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-        }
-        .envelope__veil {
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(
-            circle at center,
-            rgba(0, 0, 0, 0.15),
-            rgba(0, 0, 0, 0.6)
-          );
-          transition: opacity 0.8s ease;
-        }
-        .envelope__veil--hide {
           opacity: 0;
+          transition: opacity 1.6s ease;
+          transition-delay: 0.3s;
         }
+        .envelope__video--visible {
+          opacity: 1;
+        }
+
         .envelope__content {
           position: relative;
           text-align: center;
@@ -90,11 +84,11 @@ export default function Envelope() {
           align-items: center;
           gap: 1.25rem;
           animation: floaty 3s ease-in-out infinite;
-          transition: opacity 0.5s ease, transform 0.5s ease;
+          transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
         .envelope__content--hide {
           opacity: 0;
-          transform: translateY(-12px);
+          transform: translateY(-16px);
         }
         .envelope__monogram {
           font-size: clamp(3rem, 12vw, 6rem);
