@@ -7,7 +7,7 @@ interface GalleryItem {
   caption: string;
 }
 
-export default function StoryCarousel({ items }: { items: GalleryItem[] }) {
+export default function StoryCarousel({ items }: { items: readonly GalleryItem[] }) {
   const [index, setIndex] = useState(0);
 
   function prev() {
