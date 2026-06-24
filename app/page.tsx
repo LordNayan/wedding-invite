@@ -4,6 +4,7 @@ import Envelope from "@/components/Envelope";
 import Countdown from "@/components/Countdown";
 import Rsvp from "@/components/Rsvp";
 import StoryCarousel from "@/components/StoryCarousel";
+import MusicPlayer from "@/components/MusicPlayer";
 
 const bg = (src: string) => ({ backgroundImage: `url('${src}')` });
 
@@ -11,13 +12,14 @@ export default function Home() {
   return (
     <main>
       <Envelope />
+      <MusicPlayer />
 
       {/* ---------------- HERO ---------------- */}
       <section className="section hero">
         <div className="section-bg" style={bg(c.hero.backgroundImage)} />
         <div className="section-inner">
           <Reveal>
-            <img className="hero__monogram" src={c.couple.monogramImage} alt={c.couple.monogramText} />
+            <img className="hero__monogram" src={c.couple.monogramImageGanesh} alt={c.couple.monogramText} />
           </Reveal>
           <Reveal delay={120}>
             <h1 className="hero__name script">{c.couple.scriptName}</h1>

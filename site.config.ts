@@ -20,7 +20,12 @@ export const siteConfig = {
     title: "Nayan & Natasha — Our Forever Begins Together",
     description:
       "Celebrate the wedding of Nayan & Natasha — 9th January, 2027, Kottayam, Kerala.",
-    ogImage: "/assets/og-image.png",
+    // OG-specific overrides (used for WhatsApp / iMessage / social previews)
+    ogTitle: "You're Invited 💍 Nayan & Natasha's Wedding",
+    ogDescription:
+      "Join us as we celebrate the wedding of Nayan & Natasha — 24th–25th October, 2026 · JMD Resort, Mandav.",
+    ogImage: "/assets/og-image.webp",
+    siteName: "Nayan & Natasha",
   },
 
   /* ---------- Global identity ---------- */
@@ -28,8 +33,18 @@ export const siteConfig = {
     // Used in the big script heading on the hero (rendered as one word).
     scriptName: "Nayan Weds Natasha",
     monogramText: "N & N",
+    monogramImageGanesh: "/assets/ganesh.webp",
     monogramImage: "/assets/monogram.png",
     initials: "N | N",
+  },
+
+  /* ---------- Background music ---------- */
+  music: {
+    enabled: true,
+    src: "/assets/bg-music.mp3",
+    loop: true,
+    // Starts automatically on the first user interaction (tap/click)
+    autoplay: true,
   },
 
   /* ---------- Envelope intro overlay ---------- */
@@ -89,11 +104,11 @@ export const siteConfig = {
     // Gallery images (any number). caption shows as alt + optional overlay.
     gallery: [
       { src: "/assets/story-1.webp", caption: "Every journey led us here" },
-      { src: "/assets/story-2.webp", caption: "From adventures to forever" },
-      { src: "/assets/story-3.webp", caption: "We wrote our story. Now comes forever" },
-      { src: "/assets/story-4.webp", caption: "From miles apart to forever close" },
-      { src: "/assets/story-5.webp", caption: "Our best adventure begins now" },
-      { src: "/assets/story-6.webp", caption: "Our best adventure begins now" },
+      { src: "/assets/story-2.webp", caption: "From craziness to forever" },
+      { src: "/assets/story-3.webp", caption: "We wrote our story." },
+      { src: "/assets/story-4.webp", caption: "One trip at a time" },
+      { src: "/assets/story-5.webp", caption: "Surprise Birthday Bash became a ritual" },
+      { src: "/assets/story-6.webp", caption: "Doing everything felt special together" },
       { src: "/assets/story-7.webp", caption: "Our best adventure begins now" },
     ],
   },
@@ -111,7 +126,7 @@ export const siteConfig = {
       { image: "/assets/baraat.webp", title: "Baraat" },
       { image: "/assets/phere.webp", title: "Phere" },
       { image: "/assets/sufi.webp", title: "Sufi Night" },
-      { image: "/assets/schedule-card-1.webp", title: "After Party" },
+      { image: "/assets/after-party.webp", title: "After Party" },
     ],
   },
 
