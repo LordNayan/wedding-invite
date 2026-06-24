@@ -31,7 +31,7 @@ export default function Home() {
             <div className="divider">{c.hero.saveTheDate}</div>
             <p className="hero__date script">{c.hero.dateLine}</p>
             <p className="eyebrow hero__loc">{c.hero.location}</p>
-            <a className="rsvp__directions" href={c.rsvp.directionsUrl} target="_blank" rel="noopener noreferrer">
+            <a className="rsvp__directions" href={c.rsvp.jmdDirectionsUrl} target="_blank" rel="noopener noreferrer">
               📍 {c.rsvp.directionsLabel}
             </a>
           </Reveal>
@@ -52,8 +52,6 @@ export default function Home() {
           <Reveal delay={250}>
             <p className="countdown__foot">❦ {c.countdown.footnote} ❦</p>
             <div className="heart" style={{ marginTop: "1.5rem" }}>♥</div>
-            <p className="countdown__thanks">{c.countdown.thankYou}</p>
-            <div className="heart">♥</div>
           </Reveal>
         </div>
       </section>
@@ -138,8 +136,15 @@ export default function Home() {
           </Reveal>
           <div className="schedule__cards">
             {c.schedule.cards.map((card, i) => (
-              <Reveal className="schedule__card" delay={i * 90} key={i}>
-                <img src={card.image} alt={card.title} loading="lazy" />
+              <Reveal className="schedule__card-wrap" delay={i * 90} key={i}>
+                <div className="schedule__card">
+                  <img src={card.image} alt={card.title} loading="lazy" />
+                </div>
+                {"locationUrl" in card && (
+                  <a className="schedule__location" href={card.locationUrl} target="_blank" rel="noopener noreferrer">
+                    📍 {c.rsvp.directionsLabel}
+                  </a>
+                )}
               </Reveal>
             ))}
           </div>
@@ -153,7 +158,9 @@ export default function Home() {
           <Reveal delay={120}>
             <p className="rsvp__footer script">{c.rsvp.footer}</p>
             <div className="heart">♥</div>
-            <a className="rsvp__directions" href={c.rsvp.directionsUrl} target="_blank" rel="noopener noreferrer">
+            <p className="countdown__thanks">{c.countdown.thankYou}</p>
+            <div className="heart">♥</div>
+            <a className="rsvp__directions" href={c.rsvp.jmdDirectionsUrl} target="_blank" rel="noopener noreferrer">
               📍 {c.rsvp.directionsLabel}
             </a>
           </Reveal>

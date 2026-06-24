@@ -104,7 +104,15 @@ export const siteConfig = {
     heading: "SCHEDULE OF EVENTS",
     subheading: "A CELEBRATION OF TRADITION, LOVE & FAMILY",
     // Each card is a pre-designed image from the original deck.
-    cards: [{ image: "/assets/mehendi.webp", title: "Mehendi" },{ image: "/assets/haldi.webp", title: "Haldi" },{ image: "/assets/cocktail.webp", title: "Cocktail" },{ image: "/assets/schedule-card-1.webp", title: "Sufi Night" },{ image: "/assets/schedule-card-1.webp", title: "After Party" }],
+    cards: [
+      { image: "/assets/mehendi.webp", title: "Mehendi", locationUrl: "https://maps.app.goo.gl/otmow8TfYVacjQXx6" },
+      { image: "/assets/haldi.webp", title: "Haldi" },
+      { image: "/assets/cocktail.webp", title: "Cocktail" },
+      { image: "/assets/baraat.webp", title: "Baraat" },
+      { image: "/assets/phere.webp", title: "Phere" },
+      { image: "/assets/sufi.webp", title: "Sufi Night" },
+      { image: "/assets/schedule-card-1.webp", title: "After Party" },
+    ],
   },
 
   /* ---------- Wedding ceremony ---------- */
@@ -146,7 +154,7 @@ export const siteConfig = {
     successMessage: "Thank you! Your response has been noted with love.",
     footer: "Celebrate this new chapter with us.",
     directionsLabel: "GET DIRECTIONS",
-    directionsUrl: "https://maps.app.goo.gl/F1RsPp6k4SX69nKL9?g_st=iw",
+    jmdDirectionsUrl: "https://maps.app.goo.gl/Gb13nvmXNJKVn9kt5",
   },
 } as const;
 
