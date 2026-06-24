@@ -8,42 +8,89 @@ interface GalleryItem {
 }
 
 export default function StoryCarousel({ items }: { items: readonly GalleryItem[] }) {
-  // Two image slots that alternate; active slot fades in, inactive stays beneath
   const [slots, setSlots] = useState<[number, number]>([0, 0]);
   const [activeSlot, setActiveSlot] = useState<0 | 1>(0);
-  const [target, setTarget] = useState(0); // drives dots
-  const touchStartX = useRef<number | null>(null);
+  const [target, setTarget] = useState(0);
+  const [inView, setInView] = useState(false);
+  const [showHint, setShowHint] = useState(false);
 
-  function goTo(newIndex: number) {
-    if (newIndex === target) return;
-    const nextSlot: 0 | 1 = activeSlot === 0 ? 1 : 0;
+  const touchStartX = useRef<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const hintShownRef = useRef(false);
+
+  // Refs mirror state so timer callback is always stable (no stale closures)
+  const activeSlotRef = useRef<0 | 1>(0);
+  const targetRef = useRef(0);
+  const inViewRef = useRef(false);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  function changeSlide(newIndex: number) {
+    const nextSlot: 0 | 1 = activeSlotRef.current === 0 ? 1 : 0;
     setSlots((prev) => {
       const updated: [number, number] = [prev[0], prev[1]];
       updated[nextSlot] = newIndex;
       return updated;
     });
+    activeSlotRef.current = nextSlot;
+    targetRef.current = newIndex;
     setActiveSlot(nextSlot);
     setTarget(newIndex);
   }
 
+  // Stable: reads from refs, never recreated
   const next = useCallback(() => {
-    setTarget((t) => {
-      const newIndex = (t + 1) % items.length;
-      const nextSlot: 0 | 1 = activeSlot === 0 ? 1 : 0;
-      setSlots((prev) => {
-        const updated: [number, number] = [prev[0], prev[1]];
-        updated[nextSlot] = newIndex;
-        return updated;
-      });
-      setActiveSlot(nextSlot);
-      return newIndex;
-    });
-  }, [activeSlot, items.length]);
+    setShowHint(false); // dismiss hint on first auto-advance
+    changeSlide((targetRef.current + 1) % items.length);
+  }, [items.length]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  function restartTimer() {
+    if (timerRef.current) clearInterval(timerRef.current);
+    if (inViewRef.current) {
+      timerRef.current = setInterval(next, 5000);
+    }
+  }
+
+  // Start/stop timer when scrolling in or out of view
   useEffect(() => {
-    const id = setInterval(next, 5000);
-    return () => clearInterval(id);
-  }, [next]);
+    inViewRef.current = inView;
+    if (inView) {
+      restartTimer();
+    } else {
+      if (timerRef.current) clearInterval(timerRef.current);
+    }
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [inView, next]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Intersection observer
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+        if (entry.isIntersecting && !hintShownRef.current) {
+          hintShownRef.current = true;
+          setShowHint(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  function dismissHint() {
+    setShowHint(false);
+  }
+
+  function goTo(newIndex: number) {
+    if (newIndex === targetRef.current) return;
+    dismissHint();
+    changeSlide(newIndex);
+    restartTimer(); // reset the 5s countdown on manual navigation
+  }
 
   function handleTouchStart(e: React.TouchEvent) {
     touchStartX.current = e.touches[0].clientX;
@@ -53,18 +100,19 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
     if (touchStartX.current === null) return;
     const delta = e.changedTouches[0].clientX - touchStartX.current;
     if (Math.abs(delta) > 40) {
+      dismissHint();
       goTo(delta < 0
-        ? (target + 1) % items.length
-        : (target - 1 + items.length) % items.length
+        ? (targetRef.current + 1) % items.length
+        : (targetRef.current - 1 + items.length) % items.length
       );
     }
     touchStartX.current = null;
   }
 
   return (
-    <div className="carousel">
+    <div className="carousel" ref={containerRef}>
       <div
-        className="carousel__slide"
+        className={`carousel__slide ${showHint ? "carousel__slide--nudge" : ""}`}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -77,6 +125,12 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
           />
         ))}
         <span className="story__caption">{items[target].caption}</span>
+
+        <div className={`carousel__hint ${showHint ? "carousel__hint--visible" : ""}`}>
+          <span className="carousel__hint-arrow">‹</span>
+          <span>swipe</span>
+          <span className="carousel__hint-arrow">›</span>
+        </div>
       </div>
 
       <div className="carousel__dots">
@@ -113,6 +167,16 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
             0 0 0 8px rgba(185, 146, 78, 0.3),
             0 24px 60px rgba(67, 56, 42, 0.22);
         }
+        .carousel__slide--nudge {
+          animation: nudge 0.9s ease 0.4s both;
+        }
+        @keyframes nudge {
+          0%   { transform: translateX(0); }
+          25%  { transform: translateX(-14px); }
+          55%  { transform: translateX(9px); }
+          80%  { transform: translateX(-5px); }
+          100% { transform: translateX(0); }
+        }
         .carousel__img {
           position: absolute;
           inset: 0;
@@ -138,6 +202,37 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
           letter-spacing: 0.1em;
           font-style: italic;
           text-align: center;
+        }
+        .carousel__hint {
+          position: absolute;
+          bottom: 3.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          gap: 0.45rem;
+          background: rgba(20, 14, 6, 0.52);
+          color: rgba(246, 236, 215, 0.92);
+          font-size: 0.72rem;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          padding: 0.32rem 0.85rem;
+          border-radius: 20px;
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          pointer-events: none;
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          white-space: nowrap;
+        }
+        .carousel__hint--visible {
+          opacity: 1;
+        }
+        .carousel__hint-arrow {
+          font-size: 1rem;
+          line-height: 1;
+          opacity: 0.75;
         }
         .carousel__dots {
           display: flex;

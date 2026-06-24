@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/site.config";
 
 const { intro, couple } = siteConfig;
@@ -9,6 +9,19 @@ export default function Envelope() {
   const [playing, setPlaying] = useState(false);
   const [open, setOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Lock scroll while envelope is visible; unlock after fade-out completes
+  useEffect(() => {
+    if (!intro.enabled) return;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const t = setTimeout(() => { document.body.style.overflow = ""; }, 900);
+    return () => clearTimeout(t);
+  }, [open]);
 
   if (!intro.enabled) return null;
 
