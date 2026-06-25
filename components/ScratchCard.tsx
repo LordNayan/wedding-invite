@@ -57,13 +57,14 @@ export default function ScratchCard({ children }: { children: React.ReactNode })
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, W, H);
 
+      const c = ctx;
       SPARKLES.forEach(([xp, yp, size, isStar, alpha]) => {
-        ctx.fillStyle = `rgba(200, 175, 95, ${alpha})`;
-        if (isStar) drawStar(ctx, xp * W, yp * H, size);
+        c.fillStyle = `rgba(200, 175, 95, ${alpha})`;
+        if (isStar) drawStar(c, xp * W, yp * H, size);
         else {
-          ctx.beginPath();
-          ctx.arc(xp * W, yp * H, size, 0, Math.PI * 2);
-          ctx.fill();
+          c.beginPath();
+          c.arc(xp * W, yp * H, size, 0, Math.PI * 2);
+          c.fill();
         }
       });
 
