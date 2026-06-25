@@ -70,7 +70,7 @@ export const siteConfig = {
     targetDate: "2026-10-24T15:00:00+05:30",
     heading: "THE COUNTDOWN BEGINS",
     footnote: "Until our forever begins",
-    thankYou: "Thank you for being a part of our special day.",
+    thankYou: "Looking forward to your gracious prescence. See you super soon!",
   },
 
   /* ---------- Families ---------- */

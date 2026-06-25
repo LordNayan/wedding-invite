@@ -6,6 +6,7 @@ import Rsvp from "@/components/Rsvp";
 import StoryCarousel from "@/components/StoryCarousel";
 import MusicPlayer from "@/components/MusicPlayer";
 import ScratchCard from "@/components/ScratchCard";
+import SectionNav from "@/components/SectionNav";
 
 const bg = (src: string) => ({ backgroundImage: `url('${src}')` });
 
@@ -14,9 +15,10 @@ export default function Home() {
     <main>
       <Envelope />
       <MusicPlayer />
+      <SectionNav />
 
       {/* ---------------- HERO ---------------- */}
-      <section className="section hero">
+      <section id="s-hero" className="section hero">
         <div className="section-bg" style={bg(c.hero.backgroundImage)} />
         <div className="section-inner">
           <Reveal>
@@ -33,7 +35,7 @@ export default function Home() {
           <Reveal delay={320}>
             <div className="divider">{c.hero.saveTheDate}</div>
             <ScratchCard>
-              <p className="hero__date script">{c.hero.dateLine}</p>
+              <p className="hero__date script" dangerouslySetInnerHTML={{ __html: c.hero.dateLine.replace(/(\d+)(th|st|nd|rd)/g, '$1<sup>$2</sup>') }} />
             </ScratchCard>
             <p className="eyebrow hero__loc">{c.hero.location}</p>
             <a className="rsvp__directions" href={c.rsvp.jmdDirectionsUrl} target="_blank" rel="noopener noreferrer">
@@ -44,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* ---------------- COUNTDOWN ---------------- */}
-      <section className="section countdown">
+      <section id="s-countdown" className="section countdown">
         <div className="section-inner">
           <Reveal>
             <p className="ornament">⤙ {c.countdown.heading} ⤚</p>
@@ -62,7 +64,7 @@ export default function Home() {
       </section>
 
       {/* ---------------- INVITATION ---------------- */}
-      <section className="section invitation">
+      <section id="s-invitation" className="section invitation">
         <div className="section-bg" style={bg(c.families.backgroundImage)} />
         <div className="section-inner">
           <Reveal>
@@ -93,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* ---------------- FAMILIES ---------------- */}
-      <section className="section">
+      <section id="s-families" className="section">
         <div className="section-bg" style={bg(c.families.backgroundImage)} />
         <div className="section-inner">
           <Reveal>
@@ -142,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* ---------------- OUR STORY ---------------- */}
-      <section className="section">
+      <section id="s-story" className="section">
         <div className="section-bg" style={bg(c.story.backgroundImage)} />
         <div className="section-inner">
           <Reveal>
@@ -161,7 +163,7 @@ export default function Home() {
       </section>
 
       {/* ---------------- SCHEDULE OVERVIEW ---------------- */}
-      <section className="section">
+      <section id="s-schedule" className="section">
         <div className="section-bg" style={bg(c.schedule.backgroundImage)} />
         <div className="section-inner">
           <Reveal>
@@ -188,7 +190,7 @@ export default function Home() {
       </section>
 
       {/* ---------------- RSVP ---------------- */}
-      <section className="section rsvp">
+      <section id="s-rsvp" className="section rsvp">
         <div className="section-bg" style={bg(c.rsvp.backgroundImage)} />
         <div className="section-inner">
           <Reveal delay={120}>
