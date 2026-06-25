@@ -117,7 +117,7 @@ export default function ScratchCard({ children }: { children: React.ReactNode })
     }
 
     function pos(e: MouseEvent | Touch) {
-      const r = canvas.getBoundingClientRect();
+      const r = canvas!.getBoundingClientRect();
       return { x: e.clientX - r.left, y: e.clientY - r.top };
     }
 
@@ -136,15 +136,15 @@ export default function ScratchCard({ children }: { children: React.ReactNode })
 
     // Use RAF to wait for layout to be fully painted before reading dimensions
     function init() {
-      const rect = canvas.getBoundingClientRect();
+      const rect = canvas!.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0) {
         rafId = requestAnimationFrame(init);
         return;
       }
       const dpr = window.devicePixelRatio || 1;
-      canvas.width = Math.round(rect.width * dpr);
-      canvas.height = Math.round(rect.height * dpr);
-      ctx = canvas.getContext("2d")!;
+      canvas!.width = Math.round(rect.width * dpr);
+      canvas!.height = Math.round(rect.height * dpr);
+      ctx = canvas!.getContext("2d")!;
       ctx.scale(dpr, dpr);
       W = rect.width;
       H = rect.height;
