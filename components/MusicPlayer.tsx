@@ -31,6 +31,21 @@ export default function MusicPlayer() {
     };
   }, []);
 
+  // Pause when tab is hidden, resume when it comes back
+  useEffect(() => {
+    function onVisibilityChange() {
+      const audio = audioRef.current;
+      if (!audio) return;
+      if (document.hidden) {
+        audio.pause();
+      } else if (playing) {
+        audio.play().catch(() => {});
+      }
+    }
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", onVisibilityChange);
+  }, [playing]);
+
   function toggle() {
     const audio = audioRef.current;
     if (!audio) return;

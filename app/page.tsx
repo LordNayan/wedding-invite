@@ -7,6 +7,7 @@ import StoryCarousel from "@/components/StoryCarousel";
 import MusicPlayer from "@/components/MusicPlayer";
 import ScratchCard from "@/components/ScratchCard";
 import SectionNav from "@/components/SectionNav";
+import ScrollCue from "@/components/ScrollCue";
 
 const bg = (src: string) => ({ backgroundImage: `url('${src}')` });
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Envelope />
       <MusicPlayer />
       <SectionNav />
+      <ScrollCue />
 
       {/* ---------------- HERO ---------------- */}
       <section id="s-hero" className="section hero">
