@@ -107,7 +107,7 @@ export default function ScratchCard({ children }: { children: React.ReactNode })
       ctx.restore();
 
       if (++count % 10 === 0) {
-        const d = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        const d = ctx.getImageData(0, 0, canvas!.width, canvas!.height).data;
         let cleared = 0;
         for (let i = 3; i < d.length; i += 4) {
           if (d[i] < 128) cleared++;
