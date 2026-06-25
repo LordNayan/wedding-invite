@@ -5,6 +5,7 @@ import Countdown from "@/components/Countdown";
 import Rsvp from "@/components/Rsvp";
 import StoryCarousel from "@/components/StoryCarousel";
 import MusicPlayer from "@/components/MusicPlayer";
+import ScratchCard from "@/components/ScratchCard";
 
 const bg = (src: string) => ({ backgroundImage: `url('${src}')` });
 
@@ -31,7 +32,9 @@ export default function Home() {
           </Reveal>
           <Reveal delay={320}>
             <div className="divider">{c.hero.saveTheDate}</div>
-            <p className="hero__date script">{c.hero.dateLine}</p>
+            <ScratchCard>
+              <p className="hero__date script">{c.hero.dateLine}</p>
+            </ScratchCard>
             <p className="eyebrow hero__loc">{c.hero.location}</p>
             <a className="rsvp__directions" href={c.rsvp.jmdDirectionsUrl} target="_blank" rel="noopener noreferrer">
               📍 {c.rsvp.directionsLabel}
@@ -54,6 +57,37 @@ export default function Home() {
           <Reveal delay={250}>
             <p className="countdown__foot">❦ {c.countdown.footnote} ❦</p>
             <div className="heart" style={{ marginTop: "1.5rem" }}>♥</div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ---------------- INVITATION ---------------- */}
+      <section className="section invitation">
+        <div className="section-bg" style={bg(c.families.backgroundImage)} />
+        <div className="section-inner">
+          <Reveal>
+            <p className="ornament">⤙ ❦ ⤚</p>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="invitation__salutation script">With immense joy and gratitude,</p>
+          </Reveal>
+          <Reveal delay={200}>
+            <div className="invitation__rule" />
+            <h2 className="invitation__family">The Lakhwani Family</h2>
+            <div className="invitation__rule" />
+          </Reveal>
+          <Reveal delay={300}>
+            <p className="invitation__body">
+              cordially invites you to celebrate the wedding of their beloved son{" "}
+              <em>Nayan</em> as he embarks on this beautiful journey of love,
+              togetherness, and lifelong companionship.
+            </p>
+          </Reveal>
+          <Reveal delay={400}>
+            <p className="invitation__blessing">
+              Your gracious presence and blessings will make this occasion even more special.
+            </p>
+            <div className="heart" style={{ marginTop: "2rem" }}>♥</div>
           </Reveal>
         </div>
       </section>

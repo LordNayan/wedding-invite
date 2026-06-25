@@ -32,7 +32,7 @@ export const siteConfig = {
   couple: {
     // Used in the big script heading on the hero (rendered as one word).
     scriptName: "Nayan Weds Natasha",
-    monogramText: "N & N",
+    monogramText: "N&N",
     monogramImageGanesh: "/assets/ganesh.webp",
     monogramImage: "/assets/monogram.png",
     initials: "N | N",

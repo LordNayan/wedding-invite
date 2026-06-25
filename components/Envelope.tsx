@@ -104,7 +104,8 @@ export default function Envelope() {
           transform: translateY(-16px);
         }
         .envelope__monogram {
-          font-size: clamp(3rem, 12vw, 6rem);
+          font-family: "Cormorant Garamond", "Georgia", serif;
+          font-size: clamp(3.5rem, 14vw, 7rem);
           color: #e9cf9a;
           text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
         }
