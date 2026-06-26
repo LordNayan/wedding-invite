@@ -10,7 +10,8 @@ interface GalleryItem {
 export default function StoryCarousel({ items }: { items: readonly GalleryItem[] }) {
   const [slots, setSlots] = useState<[number, number]>([0, 0]);
   const [activeSlot, setActiveSlot] = useState<0 | 1>(0);
-  const [target, setTarget] = useState(0);
+  const [target, setTarget] = useState(0);       // dots — updates immediately
+  const [captionIdx, setCaptionIdx] = useState(0); // caption — updates when image is ready
   const [inView, setInView] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
@@ -18,39 +19,49 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
   const containerRef = useRef<HTMLDivElement>(null);
   const hintShownRef = useRef(false);
 
-  // Refs mirror state so timer callback is always stable (no stale closures)
   const activeSlotRef = useRef<0 | 1>(0);
   const targetRef = useRef(0);
   const inViewRef = useRef(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // Tracks the in-flight preload so stale loads can be cancelled
+  const preloadRef = useRef<HTMLImageElement | null>(null);
 
   function changeSlide(newIndex: number) {
     const nextSlot: 0 | 1 = activeSlotRef.current === 0 ? 1 : 0;
-    setSlots((prev) => {
-      const updated: [number, number] = [prev[0], prev[1]];
-      updated[nextSlot] = newIndex;
-      return updated;
-    });
-    activeSlotRef.current = nextSlot;
     targetRef.current = newIndex;
-    setActiveSlot(nextSlot);
-    setTarget(newIndex);
+    setTarget(newIndex); // immediate dot feedback
+
+    // Cancel any previous in-flight preload
+    if (preloadRef.current) preloadRef.current.onload = null;
+
+    const img = new Image();
+    preloadRef.current = img;
+    img.onload = () => {
+      if (preloadRef.current !== img) return; // stale — a newer navigation happened
+      preloadRef.current = null;
+      // Only NOW update the slot src and activate — image is guaranteed loaded, no flash
+      setSlots((prev) => {
+        const updated: [number, number] = [prev[0], prev[1]];
+        updated[nextSlot] = newIndex;
+        return updated;
+      });
+      activeSlotRef.current = nextSlot;
+      setActiveSlot(nextSlot);
+      setCaptionIdx(newIndex); // caption syncs with visible image
+    };
+    img.src = items[newIndex].src;
   }
 
-  // Stable: reads from refs, never recreated
   const next = useCallback(() => {
-    setShowHint(false); // dismiss hint on first auto-advance
+    setShowHint(false);
     changeSlide((targetRef.current + 1) % items.length);
   }, [items.length]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function restartTimer() {
     if (timerRef.current) clearInterval(timerRef.current);
-    if (inViewRef.current) {
-      timerRef.current = setInterval(next, 5000);
-    }
+    if (inViewRef.current) timerRef.current = setInterval(next, 5000);
   }
 
-  // Start/stop timer when scrolling in or out of view
   useEffect(() => {
     inViewRef.current = inView;
     if (inView) {
@@ -58,12 +69,12 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
     } else {
       if (timerRef.current) clearInterval(timerRef.current);
     }
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [inView, next]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Intersection observer
+  // Cancel preload on unmount
+  useEffect(() => () => { if (preloadRef.current) preloadRef.current.onload = null; }, []);
+
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -81,15 +92,11 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
     return () => observer.disconnect();
   }, []);
 
-  function dismissHint() {
-    setShowHint(false);
-  }
-
   function goTo(newIndex: number) {
     if (newIndex === targetRef.current) return;
-    dismissHint();
+    setShowHint(false);
     changeSlide(newIndex);
-    restartTimer(); // reset the 5s countdown on manual navigation
+    restartTimer();
   }
 
   function handleTouchStart(e: React.TouchEvent) {
@@ -100,7 +107,7 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
     if (touchStartX.current === null) return;
     const delta = e.changedTouches[0].clientX - touchStartX.current;
     if (Math.abs(delta) > 40) {
-      dismissHint();
+      setShowHint(false);
       goTo(delta < 0
         ? (targetRef.current + 1) % items.length
         : (targetRef.current - 1 + items.length) % items.length
@@ -124,7 +131,7 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
             className={`carousel__img ${slot === activeSlot ? "carousel__img--active" : ""}`}
           />
         ))}
-        <span className="story__caption">{items[target].caption}</span>
+        <span className="story__caption">{items[captionIdx].caption}</span>
 
         <div className={`carousel__hint ${showHint ? "carousel__hint--visible" : ""}`}>
           <span className="carousel__hint-arrow">‹</span>
@@ -184,17 +191,19 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
           height: 100%;
           object-fit: cover;
           opacity: 0;
+          z-index: 0;
           transition: opacity 0.7s ease;
         }
         .carousel__img--active {
           opacity: 1;
+          z-index: 1;
         }
         .story__caption {
           position: absolute;
           bottom: 0;
           left: 0;
           right: 0;
-          z-index: 1;
+          z-index: 2;
           padding: 2rem 1.25rem 1rem;
           background: linear-gradient(transparent, rgba(28, 21, 12, 0.65));
           color: #f6ecd7;
@@ -208,7 +217,7 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
           bottom: 3.5rem;
           left: 50%;
           transform: translateX(-50%);
-          z-index: 2;
+          z-index: 3;
           display: flex;
           align-items: center;
           gap: 0.45rem;
