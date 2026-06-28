@@ -1,6 +1,6 @@
 # Wedding Invitation — Next.js
 
-A config-driven recreation of the Nayan & Natasha wedding invitation, built with
+A config-driven recreation of the Natasha & Nayan wedding invitation, built with
 Next.js (App Router) and ready to deploy to Vercel. **Everything you see — text,
 images, dates, links — is controlled from a single file: [`site.config.ts`](./site.config.ts).**
 

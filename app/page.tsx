@@ -14,8 +14,8 @@ const bg = (src: string) => ({ backgroundImage: `url('${src}')` });
 export default function Home() {
   return (
     <main>
-      <Envelope />
-      <MusicPlayer />
+      {/* <Envelope /> */}
+      {/* <MusicPlayer /> */}
       <SectionNav />
       <ScrollCue />
 
@@ -77,13 +77,13 @@ export default function Home() {
           </Reveal>
           <Reveal delay={200}>
             <div className="invitation__rule" />
-            <h2 className="invitation__family">The Lakhwani Family</h2>
+            <h2 className="invitation__family">The Pradhan Family</h2>
             <div className="invitation__rule" />
           </Reveal>
           <Reveal delay={300}>
             <p className="invitation__body">
-              cordially invites you to celebrate the wedding of their beloved son{" "}
-              <em>Nayan</em> as he embarks on this beautiful journey of love,
+              cordially invites you to celebrate the wedding of their beloved daughter{" "}
+              <em>Natasha</em> as she embarks on this beautiful journey of love,
               togetherness, and lifelong companionship.
             </p>
           </Reveal>
@@ -109,12 +109,13 @@ export default function Home() {
 
           <div className="families__grid">
             <Reveal className="family-card" delay={80}>
-              <h3 className="family-card__name script">{c.families.groom.name}</h3>
+              <h3 className="family-card__name script">{c.families.bride.name}</h3>
               <span className="family-card__star">✦</span>
-              <p className="family-card__rel">{c.families.groom.relationLabel}</p>
-              <p className="family-card__parents">{c.families.groom.parents}</p>
-              <p className="family-card__rel">{c.families.groom.siblingLabel}</p>
-              <p className="family-card__sib">{c.families.groom.siblings.join(" & ")}</p>
+              <p className="family-card__rel">{c.families.bride.relationLabel}</p>
+              <p className="family-card__parents">{c.families.bride.parents}</p>
+              <p className="family-card__rel">{c.families.bride.siblingLabel}</p>
+              <p className="family-card__sib">{c.families.bride.siblings.join(" & ")}</p>
+              
             </Reveal>
 
             <Reveal className="families__sep" delay={140}>
@@ -122,12 +123,12 @@ export default function Home() {
             </Reveal>
 
             <Reveal className="family-card" delay={200}>
-              <h3 className="family-card__name script">{c.families.bride.name}</h3>
+              <h3 className="family-card__name script">{c.families.groom.name}</h3>
               <span className="family-card__star">✦</span>
-              <p className="family-card__rel">{c.families.bride.relationLabel}</p>
-              <p className="family-card__parents">{c.families.bride.parents}</p>
-              <p className="family-card__rel">{c.families.bride.siblingLabel}</p>
-              <p className="family-card__sib">{c.families.bride.siblings.join(" & ")}</p>
+              <p className="family-card__rel">{c.families.groom.relationLabel}</p>
+              <p className="family-card__parents">{c.families.groom.parents}</p>
+              <p className="family-card__rel">{c.families.groom.siblingLabel}</p>
+              <p className="family-card__sib">{c.families.groom.siblings.join(" & ")}</p>
             </Reveal>
           </div>
 
@@ -188,6 +189,31 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ---------------- GIFTS ---------------- */}
+      <section id="s-gifts" className="section gifts">
+        <div className="section-inner">
+          <Reveal>
+            <p className="ornament">⤙ ❦ ⤚</p>
+            <h2 className="gifts__heading script">Your Presence is Our Present</h2>
+            <div className="gifts__rule" />
+          </Reveal>
+          <Reveal delay={140}>
+            <p className="gifts__body">
+              The only gift we could ever ask for is <em>you</em> — your warm smiles,
+              your joyful laughter, and the memory of celebrating this day surrounded
+              by the people we love most.
+            </p>
+          </Reveal>
+          <Reveal delay={260}>
+            <p className="gifts__note">
+              Please, no gifts or envelopes — simply come with an open heart
+              and bless us with your love. That is more than enough.
+            </p>
+            <div className="heart" style={{ marginTop: "2rem" }}>♥</div>
+          </Reveal>
         </div>
       </section>
 

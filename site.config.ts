@@ -17,21 +17,21 @@
 export const siteConfig = {
   /* ---------- Browser tab / social sharing ---------- */
   meta: {
-    title: "Nayan & Natasha — Our Forever Begins Together",
+    title: "Natasha & Nayan— Our Forever Begins Together",
     description:
-      "Celebrate the wedding of Nayan & Natasha — 9th January, 2027, Kottayam, Kerala.",
+      "Celebrate the wedding of Natasha & Nayan — 9th January, 2027, Kottayam, Kerala.",
     // OG-specific overrides (used for WhatsApp / iMessage / social previews)
-    ogTitle: "You're Invited 💍 Nayan & Natasha's Wedding",
+    ogTitle: "You're Invited 💍 Natasha & Nayan's Wedding",
     ogDescription:
-      "Join us as we celebrate the wedding of Nayan & Natasha — 24th–25th October, 2026 · JMD Resort, Mandav.",
+      "Join us as we celebrate the wedding of Natasha & Nayan — 24th–25th October, 2026 · JMD Resort, Mandav.",
     ogImage: "/assets/og-image.webp",
-    siteName: "Nayan & Natasha",
+    siteName: "Natasha & Nayan",
   },
 
   /* ---------- Global identity ---------- */
   couple: {
     // Used in the big script heading on the hero (rendered as one word).
-    scriptName: "Nayan Weds Natasha",
+    scriptName: "Natasha Weds Nayan",
     monogramText: "N&N",
     monogramImageGanesh: "/assets/ganesh.webp",
     monogramImage: "/assets/monogram.png",
@@ -169,7 +169,7 @@ export const siteConfig = {
     successMessage: "Thank you! Your response has been noted with love.",
     footer: "Celebrate this new chapter with us.",
     directionsLabel: "GET DIRECTIONS",
-    jmdDirectionsUrl: "https://maps.app.goo.gl/Gb13nvmXNJKVn9kt5",
+    jmdDirectionsUrl: "https://maps.app.goo.gl/WPWAA1GNrsKendJ17",
   },
 } as const;
 
