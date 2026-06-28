@@ -59,7 +59,7 @@ export default function StoryCarousel({ items }: { items: readonly GalleryItem[]
 
   function restartTimer() {
     if (timerRef.current) clearInterval(timerRef.current);
-    if (inViewRef.current) timerRef.current = setInterval(next, 5000);
+    if (inViewRef.current) timerRef.current = setInterval(next, 3000);
   }
 
   useEffect(() => {
