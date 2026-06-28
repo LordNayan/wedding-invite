@@ -181,7 +181,7 @@ export default function Home() {
                   <img src={card.image} alt={card.title} loading="lazy" />
                 </div>
                 {"locationUrl" in card && (
-                  <a className="schedule__location" href={card.locationUrl} target="_blank" rel="noopener noreferrer">
+                  <a className="schedule__location" href={(card as { locationUrl: string }).locationUrl} target="_blank" rel="noopener noreferrer">
                     📍 {c.rsvp.directionsLabel}
                   </a>
                 )}
