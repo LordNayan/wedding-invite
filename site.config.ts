@@ -120,7 +120,6 @@ export const siteConfig = {
     subheading: "A CELEBRATION OF TRADITION, LOVE & FAMILY",
     // Each card is a pre-designed image from the original deck.
     cards: [
-      { image: "/assets/mehendi.webp", title: "Mehendi", locationUrl: "https://maps.app.goo.gl/otmow8TfYVacjQXx6" },
       { image: "/assets/haldi.webp", title: "Haldi" },
       { image: "/assets/cocktail.webp", title: "Cocktail" },
       { image: "/assets/baraat.webp", title: "Baraat" },
