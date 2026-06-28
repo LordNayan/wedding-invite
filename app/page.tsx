@@ -14,8 +14,8 @@ const bg = (src: string) => ({ backgroundImage: `url('${src}')` });
 export default function Home() {
   return (
     <main>
-      {/* <Envelope /> */}
-      {/* <MusicPlayer /> */}
+      <Envelope />
+      <MusicPlayer />
       <SectionNav />
       <ScrollCue />
 
