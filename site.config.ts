@@ -71,7 +71,7 @@ export const siteConfig = {
     heading: "THE COUNTDOWN BEGINS",
     footnote: "Until our forever begins",
     thankYou: "Looking forward to your gracious prescence. See you super soon!",
-    familyNames: "Lakhwani Parivaar, Puruswani Parivaar, Mirchandani Parivaar, Choudhary Parivaar & Kuldeep Parivaar"
+    familyNames: "Lakhwani Parivaar, Puruswani Parivaar, Mirchandani Parivaar, Choudhary Parivaar, Sewani Parivaar, Hariyani Parivaar & Kuldeep Parivaar"
   },
 
   /* ---------- Families ---------- */
