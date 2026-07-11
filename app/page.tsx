@@ -14,8 +14,8 @@ const bg = (src: string) => ({ backgroundImage: `url('${src}')` });
 export default function Home() {
   return (
     <main>
-      <Envelope />
-      <MusicPlayer />
+      {/* <Envelope />
+      <MusicPlayer /> */}
       <SectionNav />
       <ScrollCue />
 
@@ -191,6 +191,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------------- GIFTS ---------------- */}
+      <section id="s-gifts" className="section gifts">
+        <div className="section-inner">
+          <Reveal>
+            <p className="ornament">⤙ ❦ ⤚</p>
+            <h2 className="gifts__heading script">Your Presence is Our Present</h2>
+            <div className="gifts__rule" />
+          </Reveal>
+          <Reveal delay={140}>
+            <p className="gifts__body">
+              The only gift we could ever ask for is <em>you</em> — your warm smiles,
+              your joyful laughter, and the memory of celebrating this day surrounded
+              by the people we love most.
+            </p>
+          </Reveal>
+          <Reveal delay={260}>
+            <p className="gifts__note">
+              Please, no gifts or envelopes — simply come with an open heart
+              and bless us with your love. That is more than enough.
+            </p>
+            <div className="heart" style={{ marginTop: "2rem" }}>♥</div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ---------------- RSVP ---------------- */}
       <section id="s-rsvp" className="section rsvp">
         <div className="section-bg" style={bg(c.rsvp.backgroundImage)} />
@@ -199,6 +224,8 @@ export default function Home() {
             <p className="rsvp__footer script">{c.rsvp.footer}</p>
             <div className="heart">♥</div>
             <p className="countdown__thanks">{c.countdown.thankYou}</p>
+            <div className="heart">♥</div>
+            <p className="countdown__thanks">{c.countdown.familyNames}</p>
             <div className="heart">♥</div>
             <a className="rsvp__directions" href={c.rsvp.jmdDirectionsUrl} target="_blank" rel="noopener noreferrer">
               📍 {c.rsvp.directionsLabel}

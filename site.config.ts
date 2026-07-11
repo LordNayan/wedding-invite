@@ -71,6 +71,7 @@ export const siteConfig = {
     heading: "THE COUNTDOWN BEGINS",
     footnote: "Until our forever begins",
     thankYou: "Looking forward to your gracious prescence. See you super soon!",
+    familyNames: "Lakhwani Parivaar, Puruswani Parivaar, Mirchandani Parivaar, Choudhary Parivaar & Kuldeep Parivaar"
   },
 
   /* ---------- Families ---------- */
@@ -168,7 +169,7 @@ export const siteConfig = {
     successMessage: "Thank you! Your response has been noted with love.",
     footer: "Celebrate this new chapter with us.",
     directionsLabel: "GET DIRECTIONS",
-    jmdDirectionsUrl: "https://maps.app.goo.gl/Gb13nvmXNJKVn9kt5",
+    jmdDirectionsUrl: "https://maps.app.goo.gl/KX492RCPAwDn5YcF7",
   },
 } as const;
 
