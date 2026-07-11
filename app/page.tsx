@@ -113,6 +113,8 @@ export default function Home() {
               <span className="family-card__star">✦</span>
               <p className="family-card__rel">{c.families.groom.relationLabel}</p>
               <p className="family-card__parents">{c.families.groom.parents}</p>
+              <p className="family-card__rel">{c.families.groom.relationLabel1}</p>
+              <p className="family-card__parents">{c.families.groom.parents1}</p>
               <p className="family-card__rel">{c.families.groom.siblingLabel}</p>
               <p className="family-card__sib">{c.families.groom.siblings.join(" & ")}</p>
             </Reveal>

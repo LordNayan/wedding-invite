@@ -83,7 +83,9 @@ export const siteConfig = {
     groom: {
       name: "Nayan",
       relationLabel: "S/o",
+      relationLabel1: "With Special Blessings of",
       parents: "Bhajan & Sapna Lakhwani",
+      parents1: "Mahesh & Kamya Lakhwani",
       siblingLabel: "Grandson of",
       siblings: ["Lt. Shri Tikamdas", "Lt. Shrimati Rajkumari Lakhwani"],
     },
