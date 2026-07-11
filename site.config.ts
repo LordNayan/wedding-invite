@@ -70,7 +70,7 @@ export const siteConfig = {
     targetDate: "2026-10-24T15:00:00+05:30",
     heading: "THE COUNTDOWN BEGINS",
     footnote: "Until our forever begins",
-    thankYou: "Looking forward to your gracious prescence. See you super soon!",
+    thankYou: "Looking forward to your courteous prescence. See you super soon!",
     familyNames: "Lakhwani Parivaar, Puruswani Parivaar, Mirchandani Parivaar, Choudhary Parivaar, Sewani Parivaar, Hariyani Parivaar & Kuldeep Parivaar"
   },
 

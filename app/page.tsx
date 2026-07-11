@@ -203,15 +203,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={140}>
             <p className="gifts__body">
-              The only gift we could ever ask for is <em>you</em> — your warm smiles,
-              your joyful laughter, and the memory of celebrating this day surrounded
-              by the people we love most.
-            </p>
-          </Reveal>
-          <Reveal delay={260}>
-            <p className="gifts__note">
-              Please, no gifts or envelopes — simply come with an open heart
-              and bless us with your love. That is more than enough.
+              No Gifts, only blessings!
             </p>
             <div className="heart" style={{ marginTop: "2rem" }}>♥</div>
           </Reveal>
