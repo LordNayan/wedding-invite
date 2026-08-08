@@ -24,7 +24,7 @@ export const siteConfig = {
     ogTitle: "You're Invited 💍 Nayan & Natasha's Wedding",
     ogDescription:
       "Join us as we celebrate the wedding of Nayan & Natasha — 24th–25th October, 2026 · JMD Resort, Mandav.",
-    ogImage: "/assets/og-image.webp",
+    ogImage: "/assets/og-image.jpg",
     siteName: "Nayan & Natasha",
   },
 

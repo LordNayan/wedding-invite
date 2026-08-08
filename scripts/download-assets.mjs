@@ -63,8 +63,8 @@ async function main() {
     )
   );
   jobs.push(
-    download(OG_IMAGE, "og-image.png").catch((e) =>
-      console.warn(`  ✗ og-image.png: ${e.message}`)
+    download(OG_IMAGE, "og-image.jpg").catch((e) =>
+      console.warn(`  ✗ og-image.jpg: ${e.message}`)
     )
   );
 
