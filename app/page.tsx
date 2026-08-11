@@ -27,7 +27,7 @@ export default function Home() {
             <img className="hero__monogram" src={c.couple.monogramImageGanesh} alt={c.couple.monogramText} />
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="hero__name script">{c.couple.scriptName}</h1>
+            <h1 className="hero__name script"><strong>{c.couple.scriptName}</strong></h1>
           </Reveal>
           <Reveal delay={220}>
             <div className="heart">♥</div>
@@ -77,13 +77,13 @@ export default function Home() {
           </Reveal>
           <Reveal delay={200}>
             <div className="invitation__rule" />
-            <h2 className="invitation__family">The Lakhwani Family</h2>
+            <h2 className="invitation__family">The <strong>Lakhwani</strong> Family</h2>
             <div className="invitation__rule" />
           </Reveal>
           <Reveal delay={300}>
             <p className="invitation__body">
               cordially invites you to celebrate the wedding of their beloved son{" "}
-              <em>Nayan</em> as he embarks on this beautiful journey of love,
+              <em><strong>Nayan</strong></em> as he embarks on this beautiful journey of love,
               togetherness, and lifelong companionship.
             </p>
           </Reveal>
@@ -109,14 +109,14 @@ export default function Home() {
 
           <div className="families__grid">
             <Reveal className="family-card" delay={80}>
-              <h3 className="family-card__name script">{c.families.groom.name}</h3>
+              <h3 className="family-card__name script"><strong>{c.families.groom.name}</strong></h3>
               <span className="family-card__star">✦</span>
               <p className="family-card__rel">{c.families.groom.relationLabel}</p>
-              <p className="family-card__parents">{c.families.groom.parents}</p>
+              <p className="family-card__parents"><strong>{c.families.groom.parents}</strong></p>
               <p className="family-card__rel">{c.families.groom.relationLabel1}</p>
-              <p className="family-card__parents">{c.families.groom.parents1}</p>
+              <p className="family-card__parents"><strong>{c.families.groom.parents1}</strong></p>
               <p className="family-card__rel">{c.families.groom.siblingLabel}</p>
-              <p className="family-card__sib">{c.families.groom.siblings.join(" & ")}</p>
+              <p className="family-card__sib"><strong>{c.families.groom.siblings.join(" & ")}</strong></p>
             </Reveal>
 
             <Reveal className="families__sep" delay={140}>
@@ -124,12 +124,12 @@ export default function Home() {
             </Reveal>
 
             <Reveal className="family-card" delay={200}>
-              <h3 className="family-card__name script">{c.families.bride.name}</h3>
+              <h3 className="family-card__name script"><strong>{c.families.bride.name}</strong></h3>
               <span className="family-card__star">✦</span>
               <p className="family-card__rel">{c.families.bride.relationLabel}</p>
-              <p className="family-card__parents">{c.families.bride.parents}</p>
+              <p className="family-card__parents"><strong>{c.families.bride.parents}</strong></p>
               <p className="family-card__rel">{c.families.bride.siblingLabel}</p>
-              <p className="family-card__sib">{c.families.bride.siblings.join(" & ")}</p>
+              <p className="family-card__sib"><strong>{c.families.bride.siblings.join(" & ")}</strong></p>
             </Reveal>
           </div>
 
@@ -217,9 +217,9 @@ export default function Home() {
           <Reveal delay={120}>
             <p className="rsvp__footer script">{c.rsvp.footer}</p>
             <div className="heart">♥</div>
-            <p className="countdown__thanks">{c.countdown.thankYou}</p>
+            <p className="countdown__thanks" dangerouslySetInnerHTML={{ __html: c.countdown.thankYou }} />
             <div className="heart">♥</div>
-            <p className="countdown__thanks">{c.countdown.familyNames}</p>
+            <p className="countdown__thanks"><strong>{c.countdown.familyNames}</strong></p>
             <div className="heart">♥</div>
             <a className="rsvp__directions" href={c.rsvp.jmdDirectionsUrl} target="_blank" rel="noopener noreferrer">
               📍 {c.rsvp.directionsLabel}

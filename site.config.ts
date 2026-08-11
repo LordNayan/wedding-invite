@@ -70,8 +70,8 @@ export const siteConfig = {
     targetDate: "2026-10-24T15:00:00+05:30",
     heading: "THE COUNTDOWN BEGINS",
     footnote: "Until our forever begins",
-    thankYou: "Looking forward to your courteous prescence. See you super soon!",
-    familyNames: "Lakhwani Parivaar, Puruswani Parivaar, Mirchandani Parivaar, Choudhary Parivaar, Sewani Parivaar, Hariyani Parivaar & Kuldeep Parivaar"
+    thankYou: "This day is even more special with my lovely Bua <strong>Shobha Choudhary</strong> & <strong>Dinesh</strong> Jijaji, and awesome sister <strong>Tanvi</strong> & <strong>Yogesh</strong> Jija by our side.",
+    familyNames: "Lakhwani Parivaar, Karda Parivaar, Puruswani Parivaar, Mirchandani Parivaar, Choudhary Parivaar, Sewani Parivaar, Hariyani Parivaar & Kuldeep Parivaar"
   },
 
   /* ---------- Families ---------- */
