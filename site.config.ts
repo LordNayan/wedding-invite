@@ -88,14 +88,14 @@ export const siteConfig = {
       parents: "Bhajan & Sapna Lakhwani",
       parents1: "Mahesh & Kamya Lakhwani",
       siblingLabel: "Blessings from Heaven",
-      siblings: ["Lt. Shri Tikamdas Ji", "Lt. Shrimati Rajkumari Lakhwani Ji"],
+      siblings: ["Lt. Shri Tikamdas", "Lt. Shrimati Rajkumari Lakhwani Ji"],
     },
     bride: {
       name: "Natasha",
       relationLabel: "D/o",
       parents: "Bhushan & Payal Pradhan",
       siblingLabel: "Blessings from Heaven",
-      siblings: ["Lt. Shri Rajendra Ji", "Lt. Shrimati Rajeshree Pradhan Ji"],
+      siblings: ["Lt. Shri Rajendra", "Lt. Shrimati Rajeshree Pradhan Ji"],
     },
   },
 

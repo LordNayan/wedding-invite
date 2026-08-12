@@ -22,6 +22,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -556,6 +557,11 @@ a {
   align-items: center;
   justify-content: center;
   padding: 0.85em 1.6em;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.envelope:active .envelope__cue {
+  transform: scale(0.9);
+  opacity: 0.8;
 }
 .envelope__ripple {
   position: absolute;
