@@ -219,6 +219,8 @@ export default function Home() {
             <div className="heart">♥</div>
             <p className="countdown__thanks" dangerouslySetInnerHTML={{ __html: c.countdown.thankYou }} />
             <div className="heart">♥</div>
+            <p className="countdown__thanks" dangerouslySetInnerHTML={{ __html: c.countdown.thankYou1 }} />
+            <div className="heart">♥</div>
             <p className="countdown__thanks"><strong>{c.countdown.familyNames}</strong></p>
             <div className="heart">♥</div>
             <a className="rsvp__directions" href={c.rsvp.jmdDirectionsUrl} target="_blank" rel="noopener noreferrer">

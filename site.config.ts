@@ -71,6 +71,7 @@ export const siteConfig = {
     heading: "THE COUNTDOWN BEGINS",
     footnote: "Until our forever begins",
     thankYou: "This day is even more special with my lovely Bua <strong>Shobha Choudhary</strong> & <strong>Dinesh</strong> Jijaji, and awesome sister <strong>Tanvi</strong> & <strong>Yogesh</strong> Jija by our side.",
+    thankYou1: "With Love <strong>Devanshu(Bittu)</strong>, <strong>Manish(Manni)</strong>, <strong>Tanishq(Guddu)</strong>, <strong>Anisha</strong>, <strong>Parth</strong> and <strong>Ruhansh(Ronny)</strong>",
     familyNames: "Lakhwani Parivaar, Karda Parivaar, Puruswani Parivaar, Mirchandani Parivaar, Choudhary Parivaar, Sewani Parivaar, Hariyani Parivaar & Kuldeep Parivaar"
   },
 
@@ -86,15 +87,15 @@ export const siteConfig = {
       relationLabel1: "With Special Blessings of",
       parents: "Bhajan & Sapna Lakhwani",
       parents1: "Mahesh & Kamya Lakhwani",
-      siblingLabel: "Grandson of",
-      siblings: ["Lt. Shri Tikamdas", "Lt. Shrimati Rajkumari Lakhwani"],
+      siblingLabel: "Blessings from Heaven",
+      siblings: ["Lt. Shri Tikamdas Ji", "Lt. Shrimati Rajkumari Lakhwani Ji"],
     },
     bride: {
       name: "Natasha",
       relationLabel: "D/o",
       parents: "Bhushan & Payal Pradhan",
-      siblingLabel: "Granddaughter of",
-      siblings: ["Lt. Shri Rajendra", "Lt. Shrimati Rajeshree Pradhan"],
+      siblingLabel: "Blessings from Heaven",
+      siblings: ["Lt. Shri Rajendra Ji", "Lt. Shrimati Rajeshree Pradhan Ji"],
     },
   },
 
