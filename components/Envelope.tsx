@@ -54,7 +54,11 @@ export default function Envelope() {
 
       <div className={`envelope__content ${playing ? "envelope__content--hide" : ""}`}>
         <div className="envelope__monogram script">{couple.monogramText}</div>
-        <span className="envelope__tap">{intro.tapLabel}</span>
+        <div className="envelope__cue">
+          <span className="envelope__ripple" />
+          <span className="envelope__ripple envelope__ripple--delay" />
+          <span className="envelope__tap">{intro.tapLabel}</span>
+        </div>
         <span className="envelope__chevron">⌄</span>
       </div>
 
