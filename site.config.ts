@@ -71,7 +71,7 @@ export const siteConfig = {
     heading: "THE COUNTDOWN BEGINS",
     footnote: "Until our forever begins",
     thankYou: "This day is even more special with my lovely Bua <strong>Shobha Choudhary</strong> & <strong>Dinesh</strong> Jijaji, and awesome sister <strong>Tanvi</strong> & <strong>Yogesh</strong> Jija by our side.",
-    thankYou1: "With Love <strong>Devanshu(Bittu)</strong>, <strong>Manish(Manni)</strong>, <strong>Tanishq(Guddu)</strong>, <strong>Anisha</strong>, <strong>Parth</strong> and <strong>Ruhansh(Ronny)</strong>",
+    thankYou1: "Awaiting your presence<br /><strong>Devanshu</strong> & <strong>Manish</strong><br /><strong>Tanishq</strong> & <strong>Anisha</strong><br /><strong>Parth</strong> & <strong>Ruhansh</strong>",
     familyNames: "Lakhwani Parivaar, Karda Parivaar, Puruswani Parivaar, Mirchandani Parivaar, Choudhary Parivaar, Sewani Parivaar, Hariyani Parivaar & Kuldeep Parivaar"
   },
 
