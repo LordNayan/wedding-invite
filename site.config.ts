@@ -93,7 +93,7 @@ export const siteConfig = {
     bride: {
       name: "Natasha",
       relationLabel: "D/o",
-      parents: "Bhushan & Payal Pradhan",
+      parents: "Mr. Bhushan & Ms. Payal Pradhan",
       siblingLabel: "Blessings from Heaven",
       siblings: ["Lt. Shri Rajendra", "Lt. Shrimati Rajeshree Pradhan Ji"],
     },
