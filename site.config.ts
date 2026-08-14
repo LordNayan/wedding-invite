@@ -71,7 +71,7 @@ export const siteConfig = {
     heading: "THE COUNTDOWN BEGINS",
     footnote: "Until our forever begins",
     thankYou: "This day is even more special with my lovely Bua <strong>Shobha Choudhary</strong> & <strong>Dinesh</strong> Jijaji, and awesome sister <strong>Tanvi</strong> & <strong>Yogesh</strong> Jija by our side.",
-    thankYou1: "Awaiting your presence<br /><strong>Devanshu</strong> & <strong>Manish</strong><br /><strong>Mr. Tanishq</strong> & <strong>Ms. Anisha</strong><br /><strong>Parth</strong> & <strong>Ruhansh</strong>",
+    thankYou1: "Awaiting your presence<br /><strong>Devanshu</strong> & <strong>Manish</strong><br /><strong>Mr. Tanishq</strong> & <strong>Mrs. Anisha</strong><br /><strong>Parth</strong> & <strong>Ruhansh</strong>",
     familyNames: "Lakhwani Parivaar, Karda Parivaar, Puruswani Parivaar, Mirchandani Parivaar, Choudhary Parivaar, Sewani Parivaar, Hariyani Parivaar & Kuldeep Parivaar"
   },
 
@@ -85,15 +85,15 @@ export const siteConfig = {
       name: "Nayan",
       relationLabel: "S/o",
       relationLabel1: "With Special Blessings of",
-      parents: "Mr. Bhajan & Ms. Sapna Lakhwani",
-      parents1: "Mr. Mahesh & Ms. Kamya Lakhwani",
+      parents: "Mr. Bhajan & Mrs. Sapna Lakhwani",
+      parents1: "Mr. Mahesh & Mrs. Kamya Lakhwani",
       siblingLabel: "Blessings from Heaven",
       siblings: ["Lt. Shri Tikamdas", "Lt. Shrimati Rajkumari Lakhwani Ji"],
     },
     bride: {
       name: "Natasha",
       relationLabel: "D/o",
-      parents: "Mr. Bhushan & Ms. Payal Pradhan",
+      parents: "Mr. Bhushan & Mrs. Payal Pradhan",
       siblingLabel: "Blessings from Heaven",
       siblings: ["Lt. Shri Rajendra", "Lt. Shrimati Rajeshree Pradhan Ji"],
     },
